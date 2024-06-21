@@ -1,0 +1,35 @@
+FORMULIR BUKU
+
+<html>
+<head>
+    <title>Form Buku</title>
+    <link rel="stylesheet" href="global.css">
+</head>
+<body>
+    <h1>Form Buku</h1>
+    <form action="{% url 'buku_save' %}" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Judul</td>
+                <td><input type="text" name="judul" value="{{ buku.judul }}"></td>
+            </tr>
+            <tr>
+                <td>Pengarang</td>
+                <td><input type="text" name="pengarang" value="{{ buku.pengarang }}"></td>
+            </tr>
+            <tr>
+                <td>Penerbit</td>
+                <td><input type="text" name="penerbit" value="{{ buku.penerbit }}"></td>
+            </tr>
+            <tr>
+                <td>Tahun Terbit</td>
+                <td><input type="text" name="tahun_terbit" value="{{ buku.tahun_terbit }}"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Simpan"></td>
+            </tr>
+        </table>
+    </form>
+</html>

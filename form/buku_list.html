@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Daftar Buku</title>
+    <link rel="stylesheet" href="global.css">
+</head>
+<body>
+    <h1>Daftar Buku</h1>
+    <table border="1">
+        <tr>
+            <th>No</th>
+            <th>Judul</th>
+            <th>Pengarang</th>
+            <th>Penerbit</th>
+            <th>Tahun Terbit</th>
+            <th>Aksi</th>
+        </tr>
+        {% for buku in buku_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ buku.judul }}</td>
+            <td>{{ buku.pengarang }}</td>
+            <td>{{ buku.penerbit }}</td>
+            <td>{{ buku.tahun_terbit }}</td>
+            <td>
+                <a href="{% url 'buku_edit' buku.id %}">Edit</a>
+                <a href="{% url 'buku_delete' buku.id %}">Hapus</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'buku_add' %}">Tambah Buku</a>
+</body>
